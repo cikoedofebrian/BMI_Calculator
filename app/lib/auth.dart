@@ -81,9 +81,10 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   Text(
                     isRegister ? 'Register' : 'Login',
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        fontSize: 30, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 80,
                   ),
                   Form(
@@ -92,20 +93,21 @@ class _LoginPageState extends State<LoginPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          child: Text(
+                          margin: const EdgeInsets.all(8),
+                          child: const Text(
                             'Username',
                           ),
-                          margin: EdgeInsets.all(8),
                         ),
                         TextFormField(
                           onSaved: (newValue) => username = newValue!,
-                          style: TextStyle(fontSize: 14),
+                          style: const TextStyle(fontSize: 14),
                           validator: (value) {
                             if (value!.isEmpty) {
                               return "Username can't be empty";
                             } else if (value.length < 8 || value.length > 15) {
                               return "A Username have minimum and maximum length of 8 and 15";
                             }
+                            return null;
                           },
                           textAlignVertical: TextAlignVertical.center,
                           decoration: InputDecoration(
@@ -115,29 +117,30 @@ class _LoginPageState extends State<LoginPage> {
                             hintText: "Username",
                             filled: true,
                             contentPadding:
-                                EdgeInsets.symmetric(horizontal: 20),
-                            suffixIcon: Icon(Icons.email),
+                                const EdgeInsets.symmetric(horizontal: 20),
+                            suffixIcon: const Icon(Icons.email),
                           ),
                         ),
                         const SizedBox(
                           height: 15,
                         ),
                         Container(
+                          margin: const EdgeInsets.all(8),
                           child: const Text(
                             'Password',
                           ),
-                          margin: EdgeInsets.all(8),
                         ),
                         TextFormField(
                           obscureText: true,
                           onSaved: (newValue) => password = newValue!,
-                          style: TextStyle(fontSize: 14),
+                          style: const TextStyle(fontSize: 14),
                           validator: (value) {
                             if (value!.isEmpty) {
                               return "Password can't be empty";
                             } else if (value.length < 8 || value.length > 15) {
                               return "A password have minimum and maximum length of 8 and 15";
                             }
+                            return null;
                           },
                           textAlignVertical: TextAlignVertical.center,
                           decoration: InputDecoration(
@@ -147,11 +150,11 @@ class _LoginPageState extends State<LoginPage> {
                                 borderSide: BorderSide.none),
                             filled: true,
                             contentPadding:
-                                EdgeInsets.symmetric(horizontal: 20),
-                            suffixIcon: Icon(Icons.password),
+                                const EdgeInsets.symmetric(horizontal: 20),
+                            suffixIcon: const Icon(Icons.password),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 35,
                         ),
                         Material(
@@ -161,13 +164,13 @@ class _LoginPageState extends State<LoginPage> {
                             child: Container(
                               alignment: Alignment.center,
                               width: double.infinity,
-                              padding: EdgeInsets.symmetric(vertical: 15),
+                              padding: const EdgeInsets.symmetric(vertical: 15),
                               decoration: BoxDecoration(
                                   color: Colors.lightBlue,
                                   borderRadius: BorderRadius.circular(10)),
                               child: Text(
                                 isRegister ? 'REGISTER' : 'LOGIN',
-                                style: TextStyle(
+                                style: const TextStyle(
                                     letterSpacing: 1.5,
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
@@ -176,7 +179,7 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 15,
                         ),
                         Row(
@@ -186,13 +189,13 @@ class _LoginPageState extends State<LoginPage> {
                               isRegister
                                   ? 'Already have an account?'
                                   : 'Does not have an account?',
-                              style: TextStyle(fontSize: 14),
+                              style: const TextStyle(fontSize: 14),
                             ),
                             InkWell(
                               onTap: () => toRegister(),
                               child: Text(
                                 isRegister ? 'Sign in' : 'Create account',
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: Colors.lightBlue, fontSize: 14),
                               ),
                             ),
