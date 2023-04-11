@@ -136,7 +136,7 @@ class _LoginPageState extends State<LoginPage> {
                             if (value!.isEmpty) {
                               return "Password can't be empty";
                             } else if (value.length < 8 || value.length > 15) {
-                              return "A Username have minimum and maximum length of 8 and 15";
+                              return "A password have minimum and maximum length of 8 and 15";
                             }
                           },
                           textAlignVertical: TextAlignVertical.center,
