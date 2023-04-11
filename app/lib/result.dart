@@ -12,7 +12,7 @@ class ResultPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: bmidata.color,
       body: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(30),
         child: Column(
           children: [
             Expanded(
@@ -21,24 +21,27 @@ class ResultPage extends StatelessWidget {
               children: [
                 const Text('Your BMI result is :',
                     style: TextStyle(
+                        letterSpacing: 1.5,
                         color: Colors.white,
                         fontSize: 24,
                         fontWeight: FontWeight.bold)),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Text(bmidata.result.toStringAsFixed(1),
                     style: const TextStyle(
+                        letterSpacing: 1.5,
                         color: Colors.white,
                         fontSize: 40,
                         fontWeight: FontWeight.bold)),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Text(
                   bmidata.text,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
+                      letterSpacing: 1.5,
                       color: Colors.white,
                       fontSize: 20,
                       fontWeight: FontWeight.bold),
@@ -48,7 +51,7 @@ class ResultPage extends StatelessWidget {
             InkWell(
               onTap: () => Navigator.pop(context),
               child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 24),
+                margin: const EdgeInsets.symmetric(vertical: 5),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                     color: Colors.white,

@@ -21,6 +21,15 @@ class _LoginPageState extends State<LoginPage> {
     });
   }
 
+  void login() {
+    if (accountList.any(
+        (user) => user.username == username && user.password == password)) {
+      Navigator.pushReplacementNamed(context, '/home', arguments: username);
+    } else {
+      customDialog("Account does not found");
+    }
+  }
+
   void register() {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
@@ -56,15 +65,6 @@ class _LoginPageState extends State<LoginPage> {
         ],
       ),
     );
-  }
-
-  void login() {
-    if (accountList.any(
-        (user) => user.username == username && user.password == password)) {
-      Navigator.pushReplacementNamed(context, '/home');
-    } else {
-      customDialog("Account does not found");
-    }
   }
 
   @override
@@ -155,7 +155,6 @@ class _LoginPageState extends State<LoginPage> {
                           height: 35,
                         ),
                         Material(
-                          elevation: 5,
                           borderRadius: BorderRadius.circular(10),
                           child: InkWell(
                             onTap: isRegister ? register : login,
@@ -164,17 +163,21 @@ class _LoginPageState extends State<LoginPage> {
                               width: double.infinity,
                               padding: EdgeInsets.symmetric(vertical: 15),
                               decoration: BoxDecoration(
-                                  color: Colors.red,
+                                  color: Colors.lightBlue,
                                   borderRadius: BorderRadius.circular(10)),
                               child: Text(
-                                isRegister ? 'Register' : 'Login',
-                                style: TextStyle(color: Colors.white),
+                                isRegister ? 'REGISTER' : 'LOGIN',
+                                style: TextStyle(
+                                    letterSpacing: 1.5,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20),
                               ),
                             ),
                           ),
                         ),
                         SizedBox(
-                          height: 10,
+                          height: 15,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -183,14 +186,14 @@ class _LoginPageState extends State<LoginPage> {
                               isRegister
                                   ? 'Already have an account?'
                                   : 'Does not have an account?',
-                              style: TextStyle(fontSize: 12),
+                              style: TextStyle(fontSize: 14),
                             ),
                             InkWell(
                               onTap: () => toRegister(),
                               child: Text(
                                 isRegister ? 'Sign in' : 'Create account',
-                                style:
-                                    TextStyle(color: Colors.blue, fontSize: 12),
+                                style: TextStyle(
+                                    color: Colors.lightBlue, fontSize: 14),
                               ),
                             ),
                           ],

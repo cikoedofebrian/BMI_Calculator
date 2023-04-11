@@ -18,14 +18,14 @@ class _HomePageState extends State<HomePage> {
     final double bmi =
         _weightSliderValue / (pow((_heightSliderValue / 100.0), 2));
     Color color = Colors.green;
-    String text = "Your weight are perfect, Keep it up!";
+    String text = "Your weight are perfect, keep it up!";
     if (bmi < 18.5) {
       color = Colors.blue;
       text = "You are underweight, please eat more foods!";
     } else if (bmi >= 25 && bmi < 30) {
       color = Colors.orange;
       text = "You are overweight, please eat less foods!";
-    } else {
+    } else if (bmi >= 30) {
       color = Colors.red;
       text =
           "You are extremely overweight, please eat less foods and consider taking a workout!";
@@ -37,6 +37,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final username = ModalRoute.of(context)!.settings.arguments as String;
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.lightBlue,
@@ -47,20 +48,20 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Hello Ciko,",
-                style: TextStyle(
+                "Hello $username,",
+                style: const TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                     color: Colors.white),
               ),
-              Text(
+              const Text(
                 "Welcome to BMI Calculator!",
                 style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                     color: Colors.white),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 100,
               ),
               Padding(
@@ -88,7 +89,7 @@ class _HomePageState extends State<HomePage> {
               Slider(
                 thumbColor: Colors.white,
                 activeColor: Colors.white,
-                inactiveColor: Colors.black,
+                inactiveColor: Colors.white30,
                 value: _heightSliderValue,
                 min: 1,
                 max: 300,
@@ -133,19 +134,19 @@ class _HomePageState extends State<HomePage> {
                   });
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               InkWell(
                 onTap: () => getResult(),
                 child: Container(
-                  margin: EdgeInsets.symmetric(horizontal: 24),
+                  margin: const EdgeInsets.symmetric(horizontal: 24),
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10)),
                   height: 60,
-                  child: Text(
+                  child: const Text(
                     'GET BMI RESULT',
                     style: TextStyle(
                         color: Colors.lightBlue,

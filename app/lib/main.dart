@@ -20,10 +20,10 @@ class MyApp extends StatelessWidget {
         // textTheme: GoogleFonts.poppinsTextTheme(),
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      home: const LoginPage(),
       routes: {
-        '/home': (context) => HomePage(),
-        '/result': (context) => ResultPage()
+        '/home': (context) => const HomePage(),
+        '/result': (context) => const ResultPage()
       },
     );
   }
